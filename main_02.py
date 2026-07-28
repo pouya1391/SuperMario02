@@ -1,7 +1,21 @@
 import pgzrun
 import random
-from pgzero.actor import Actor 
+import pygame.display
+import sys
+from ctypes import windll
+from pgzero.actor import Actor
 from pgzero.keyboard import keyboard
+
+
+def correct_location(actor):
+    if actor.x > WIDTH + actor.width//2:
+        actor.x = -actor.width//2
+    if actor.x < -actor.width//2:
+        actor.x = WIDTH + actor.width//2
+    if actor.y > HEIGHT + actor.height//2:
+        actor.y = -actor.height//2
+    if actor.y < -actor.height//2:
+        actor.y = HEIGHT + actor.height//2
 
 def draw():
     screen.blit("back", (0, 0))
