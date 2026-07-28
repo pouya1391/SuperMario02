@@ -21,7 +21,7 @@ def correct_location(actor):
         actor.y = HEIGHT + actor.height//2
 
 def draw():
-    screen.blit("back", (0, 0))
+    mod.screen.blit("back", (0, 0))
     mario.draw()
     luigi.draw()
     enemy.draw()
@@ -55,6 +55,9 @@ def update():
 WIDTH = 1280
 HEIGHT = 720
 
+hwnd = pygame.display.get_wm_info()['window' ]
+windll.user32.MoveWindow(hwnd, 130, 30, WIDTH, HEIGHT, False)
+
 luigi = Actor("luigi_right")
 random_location(luigi)
 
@@ -67,5 +70,7 @@ random_location(enemy)
 
 coin = Actor("coin")
 random_location(coin)
+
+mod = sys . modules["main"]
 
 pgzrun.go()
