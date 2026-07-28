@@ -58,7 +58,7 @@ HEIGHT = 720
 
 hwnd = pygame.display.get_wm_info()['window' ]
 windll.user32.MoveWindow(hwnd, 130, 30, WIDTH, HEIGHT, False)
-mod = sys . modules["main"]
+mod = sys. modules["__main__"]
 
 luigi = Actor("luigi_right")
 random_location(luigi)
