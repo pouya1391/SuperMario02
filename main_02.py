@@ -6,6 +6,9 @@ from ctypes import windll
 from pgzero.actor import Actor
 from pgzero.keyboard import keyboard
 
+def random_location(actor):
+    actor.x = random.randint(0, 1280)
+    actor.y = random.randint(0, 720)
 
 def correct_location(actor):
     if actor.x > WIDTH + actor.width//2:
@@ -35,7 +38,8 @@ def update():
         luigi.y += 5
     if keyboard.up:
         luigi.y -= 5
-    
+    correct_location(luigi)
+
     if keyboard.d:
         mario.x += 5
         mario.image = "mario_right"
@@ -46,27 +50,22 @@ def update():
         mario.y += 5
     if keyboard.w:
        mario.y -= 5
+    correct_location(mario)
 
 WIDTH = 1280
 HEIGHT = 720
 
 luigi = Actor("luigi_right")
-luigi .x = 600
-luigi .y = 200
+random_location(luigi)
 
 mario = Actor("mario_right")
-mario.x = random.randint(0, 1280)
-mario.x = random.randint(0, 720)
-mario.x = 300
-mario.y = 200
+random_location(mario)
 
 
 enemy = Actor("enemy_right")
-enemy.x = 700
-enemy.y = 300
+random_location(enemy)
 
 coin = Actor("coin")
-coin.x = 700
-coin.y = 400
+random_location(coin)
 
 pgzrun.go()
