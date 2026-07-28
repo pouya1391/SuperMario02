@@ -28,6 +28,7 @@ def draw():
     coin.draw()
 
 def update():
+    # luigi section
     if keyboard.right:
         luigi.x += 5
         luigi.image = "luigi_right"
@@ -39,7 +40,7 @@ def update():
     if keyboard.up:
         luigi.y -= 5
     correct_location(luigi)
-
+    # mario section
     if keyboard.d:
         mario.x += 5
         mario.image = "mario_right"
@@ -57,6 +58,7 @@ HEIGHT = 720
 
 hwnd = pygame.display.get_wm_info()['window' ]
 windll.user32.MoveWindow(hwnd, 130, 30, WIDTH, HEIGHT, False)
+mod = sys . modules["main"]
 
 luigi = Actor("luigi_right")
 random_location(luigi)
@@ -70,7 +72,5 @@ random_location(enemy)
 
 coin = Actor("coin")
 random_location(coin)
-
-mod = sys . modules["main"]
 
 pgzrun.go()
