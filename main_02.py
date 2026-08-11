@@ -31,6 +31,10 @@ def draw():
     enemy.draw()
     coin.draw()
 
+    mod.screen.draw.text(f"mario score: {mario.score}",(10, 10),fontsize=35,color="red")
+
+    mod.screen.draw.text(f"luigi score: {luigi.score}",(10, 50),fontsize=35,color="green")
+
 def update():
 
     # luigi section
@@ -74,8 +78,6 @@ def update():
     correct_location(enemy)
 
     # coin section
-    coin.x += coin.speed
-    coin.y += coin.speed
     correct_location(coin)
 
 
@@ -85,7 +87,7 @@ HEIGHT = 720
 
 hwnd = pygame.display.get_wm_info()['window' ]
 windll.user32.MoveWindow(hwnd, 130, 30, WIDTH, HEIGHT, False)
-mod = sys. modules["__main__"]
+mod = sys.modules["__main__"]
 
 
 luigi = Actor("luigi_right")
@@ -101,12 +103,11 @@ mario.score = 0
 
 enemy = Actor("enemy_right")
 random_location(enemy)
-enemy.speed = 12
+enemy.speed = 26
 
 
 coin = Actor("coin")
 random_location(coin)
-coin.speed = 2
 
 
 pgzrun.go()
