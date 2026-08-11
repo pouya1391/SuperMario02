@@ -45,6 +45,11 @@ def update():
     if keyboard.up:
         luigi.y -= luigi.speed
     correct_location(luigi)
+    if luigi.colliderect(coin):
+        random_location(coin)
+        sounds.jiring.play()
+        luigi.score += 10
+        print(luigi.score)
 
     # mario section
     if keyboard.d:
@@ -58,6 +63,10 @@ def update():
     if keyboard.w:
        mario.y -= mario.speed
     correct_location(mario)
+    if mario.colliderect(coin):
+        random_location(coin)
+        sounds.jiring.play()
+        mario.score += 10
 
     # enemy section
     enemy.x += enemy.speed
@@ -82,11 +91,12 @@ mod = sys. modules["__main__"]
 luigi = Actor("luigi_right")
 random_location(luigi)
 luigi.speed = 5
-
+luigi.score = 0
 
 mario = Actor("mario_right")
 random_location(mario)
 mario.speed = 6
+mario.score = 0
 
 
 enemy = Actor("enemy_right")
