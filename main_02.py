@@ -19,8 +19,9 @@ def correct_location(actor):
 
 
 def random_location(actor):
-    actor.x = random.randint(0, 1280)
-    actor.y = random.randint(0, 720)
+    actor.x = random.randint(0, WIDTH )
+    actor.y = random.randint(0, HEIGHT )
+
 
 
 def draw():
@@ -60,12 +61,12 @@ def update():
 
     # enemy section
     enemy.x += enemy.speed
-    enemy.x += enemy.speed
+    enemy.y += enemy.speed
     correct_location(enemy)
 
     # coin section
     coin.x += coin.speed
-    coin.x += coin.speed
+    coin.y += coin.speed
     correct_location(coin)
 
 
@@ -90,7 +91,7 @@ mario.speed = 6
 
 enemy = Actor("enemy_right")
 random_location(enemy)
-enemy.speed = 3
+enemy.speed = 12
 
 
 coin = Actor("coin")
